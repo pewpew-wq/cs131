@@ -14,4 +14,4 @@ T13:
 git init
 git add answers.txt
 git commit -m "linux basics challenge"
-T14: git clone <https://github.com/pewpew-wq/cs131>
+T14: git clone https://github.com/pewpew-wq/cs131
