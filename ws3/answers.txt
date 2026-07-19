@@ -1,0 +1,72 @@
+Part A - I/O Redirection & Pipelines
+
+A1.
+ls -l > listing.txt
+date >> listing.txt
+
+A2. ls /nonexistent_dir 2> errors.txt
+
+A3. ls /nonexistent_dir /etc > output.txt 2> errors.txt
+
+A4. ls /nonexistent_dir /etc &> combined.txt
+
+A5. 
+we see the normal directory listing of /etc and no error message for /nonexistent_dir since standard output or stdout is untouched and standard error stderr is overwrited by 2>. 
+
+/dev/null is to cleanly silence an unwanted output since the system will discard the data 
+
+A6. sort fruits.txt | uniq
+
+A7. sort fruits.txt | uniq -c | sort -rn
+
+A8. grep "ERROR" server.log | wc -l
+
+A9. cat server.log | grep "ERROR" > errors_only.txt
+
+A10. grep -oE '^[A-Z]+' server.log | sort | uniq -c | sort -rn
+
+A11. grep -oE '"state"\s*:\s*"[A-Z]{2}"' /data/yelp/yelp_academic_dataset_business.json | grep -oE '[A-Z]{2}' | sort | uniq -c | sort -rn | head -n 5
+
+Part B - File Permissions
+
+B1.
+uid = 1045(ishigaki-cs12)
+gid = 1045(ishigaki-cs12)
+groups = 1045(ishigaki-cs12)
+
+UID is the specific number assigned to the single user account
+GID is the number assigned to a group of users
+
+B2. -rw-rw-r-- where owner can read and write, group can read and write,  world can only read
+
+B3. default permission was 0002 so 664 so -rw-rw-r--
+
+B4. 
+chmod 000 secret.txt
+cat secret.txt returned cat: secret.txt: Permission denied
+chmod u+rw secret.txt
+
+
+B5. chmod 640 fruits.txt
+
+B6. find . -type f -user "$(whoami)" -perm -u+w
+
+Part C -- Background Jobs & Detaching
+
+C1. 852829
+
+C2. 
+job number: 1
+status: Running
+command: bash long.sh > log.txt &
+
+C3. Stopped
+
+C4. bg returned [1]+ bash long.sh > log.txt &
+
+C5. SIGTERM signal by default which terminated the program
+
+C6. ps -p 853078
+
+C7. disown lets the process survive when the terminal closes while a regular background job doesn't since it isn't tied to the shell and never receives that termination signal
+

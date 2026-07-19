@@ -1,0 +1,61 @@
+T1: 
+
+https://gist.github.com/zachbrowne/8bc414c9f30192067831fafebd14255c#file-the-ultimate-bad-ass-bashrc-file-L635 
+
+extract ()
+
+( if [ -f $1 ] ; then ) is the control that checks if the first argument passed is a valid file.
+
+( case $1 in ) checks the extension pattern using the case switch statement for instance in the case ( *.tar.bz2) tar xvjf $1 ;; ) that it's a Bzip2 tarball it's told to decompress and unpack all files from .tar.bz2 archive. In the case that none of the cases presented match, ( else echo "'$1 is not a valid file" fi : ) this else handles the error without crashing.
+
+https://gist.github.com/zachbrowne/8bc414c9f30192067831fafebd14255c#file-the-ultimate-bad-ass-bashrc-file-L612
+
+ftext ()
+
+( grep -iTHrn --color=always "$1" . ) searches for the first $1 from the root directory. (-i) allows the search to be case-insensitive (-I) ignores binary files preventing terminal corruption (-H) forces path of matching filename to be printed (-r) recursive search (-n) display line number (--color=always) syntax matching highlighting keywords (less -r) makes output presentable
+
+T2:
+
+https://github.com/pewpew-wq/cs131/blob/03bb8a22c0f773ded4df4a7ecebe5fa61b38738c/ws4/T2.sh#L5
+
+alias history='history 10'
+
+history returns the recent 10 history commands
+
+https://github.com/pewpew-wq/cs131/blob/03bb8a22c0f773ded4df4a7ecebe5fa61b38738c/ws4/T2.sh#L9-L11
+
+if [ "$HOSTNAME" = "$HOSTNAME" ]; then
+        echo "currently: $HOSTNAME"
+fi
+
+if $HOSTNAME matches then it prints the current host to inform the current user
+
+https://github.com/pewpew-wq/cs131/blob/03bb8a22c0f773ded4df4a7ecebe5fa61b38738c/ws4/T2.sh#L15-L35
+
+show ()
+{
+        echo "\$0 = $0, \$1 = $1, \$2 = $2"
+        echo "$# servers exist and look like $*"
+
+        local count=1;
+
+        while [[ $# -gt 0 ]]; do
+                echo "$count: $1..."
+
+                if ping -c 1 -W 2 "$1" > /dev/null 2>&1; then
+                        echo "$1 is online"
+                else
+                        echo "$1 is offline"
+                fi
+
+                count=$((count + 1))
+                echo "finished #$count"
+                shift
+        done
+}
+
+
+checks list of server addresses if they're online, ($0, $1, $2) holds environment arguments ($#) counts total number of arguments ($*) puts all arguments together
+
+the while loop iterates through the arguments until it's 0 then the body if statements sends 1 ping (-c 1) and waits 2 seconds (-W 2) to the target ($1) as (> /dev/null 2>&1) makes the output clean so if it pings it returns online otherwise offline (shift) moves through the arguments
+

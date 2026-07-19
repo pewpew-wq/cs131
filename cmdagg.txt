@@ -1,0 +1,9 @@
+command: 
+
+powershell -Command "$f=0;$d=0; Get-ChildItem -Path '.\raw_2026_q1\data_Q1_2026\*.csv' | ForEach-Object { Get-Content $_.FullName | Select-Object -Skip 1 | ForEach-Object { $l=$_.Split(','); if($l[4] -eq '1'){$f++}; $d++ } }; Write-Host '--- LOCAL CMD AGGREGATION RESULTS ---'; Write-Host 'Total Failures:' $f; Write-Host 'Total Drive Days:' $d"
+
+output: 
+
+--- LOCAL CMD AGGREGATION RESULTS ---
+Total Failures: 1030
+Total Drive Days: 30597484

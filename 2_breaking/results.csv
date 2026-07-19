@@ -1,0 +1,8 @@
+drive_type,lifespan_quarter,total_failures,total_drive_days,failure_rate_per_million
+HDD,0,1030,30243391,34.05702753371803
+SSD,0,0,354093,0.0
+
+so:
+Over the quarter, HDDs accumulated 30,243,391 drive days of operational exposure. They recorded 1,030 failures, resulting in an annualized failure rate of 34.06 per million drive days.
+
+SSDs recorded 354,093 drive days of operational exposure with 0 failures during this same period (0.0 failure rate).

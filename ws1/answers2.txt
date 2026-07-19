@@ -1,0 +1,20 @@
+B1: jq -c 'select(.city == Santa Barbara)' yelp_academic_dataset_business.json
+B2: jq -s 'map(select(.state == CA)) | length' yelp_academic_dataset_business.json -> returned 5203
+B3: grep -i 'text:.*worth' yelp_academic_dataset_review.json | jq -c 'select(.text | test(worth; i))' -> the i parameter makes it case-insensitive
+B4: grep -E -i 'coffee|caf[eé]' yelp_academic_dataset_business.json
+B5: grep -E 'stars:(4\.5|5\.0)' yelp_academic_dataset_business.json
+B6: grep -E 'stars:5,' yelp_academic_dataset_review.json
+B7: grep -E 'text:.*[a-zA-Z0-9_]+@[a-zA-Z0-9_\.]+\.[a-zA-Z]{2,}' yelp_academic_dataset_review.json
+B8: grep -E '[0-9]{3}-[0-9]{3}-[0-9]{4}' yelp_academic_dataset_review.json
+B9: grep -E '"name":"P' yelp_academic_dataset_business.json
+B10: grep -E -i 'pizza' yelp_academic_dataset_review.json | wc -l
+B11: grep -n -i 'service' yelp_academic_dataset_review.json -> -n the prints line numbers
+B12: grep -v 'categories:.*Restaurants' yelp_academic_dataset_business.json -> -v inverts the search
+B13:
+1. grep filters the file to keep only JSON lines where the state is exactly CA
+2. grep -oE extracts only the matched 'review_count:NUMBER' string from [0-9]+ lines on separate rows.
+3. next grep -oE isolates and extracts the digits from the review_count key-value strings
+4. sort then sorts the raw review count numbers numerically (-n) and in descending (-r) order
+5. head trims the sorted stream to output only the first 3 highest numbers
+B14: grep 'city:Santa Barbara' yelp_academic_dataset_business.json 
+  | jq -r '.name'   | sort 

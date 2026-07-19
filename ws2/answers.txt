@@ -1,0 +1,42 @@
+W1 -- Commit a change
+Q1: 
+git add notes.md
+git commit -m ws2: add task line
+Q2. git log --oneline -n 3
+
+W2 -- Revert a bad command
+Q3. c57ba49
+Q4. git revert c57ba49
+
+W3 -- Recover from a failed push (large file)
+Q5. 
+git rm --cached bigdata.bin
+echo "bigdata.bin" >> .gitignore
+git add .gitignore
+git commit --amend --no-edit
+git push
+rm bigdata.bin
+
+W4 -- Branch, diff, merge
+Q6. git checkout -b feature-summary --> git checkout -b creates and switches the working directory 
+Q7. 
+git add summary.md
+git commit -m "ws2: add summary document"
+Q8. git diff main..feature-summary
+Q9. 
+git checkout main
+git merge feature-summary
+Q10. git branch -d feature-summary
+
+W4b -- Merge conflict
+Q11. git merge conflict-branch --> summary.md is reported as conflicted
+Q12. git status -s
+Q13. vim summary.md --> used to open and edit the file
+Q14. 
+git add summary.md
+git commit
+Q15.
+git fetch origin --> fetch command
+git log HEAD..origin/main --oneline --> view incoming commits
+Q16. git fetch only downloads new data from remote repository and doesn't alter local files while git pull downloads data and merges it into current branch
+

@@ -1,0 +1,55 @@
+Batch [e071346f8eea44d3a1a04a3e7dc69967] submitted.
+WARNING: No runtime version specified. Using the default runtime version. It is recommended to select a specific major.minor runtime version in production, as the default runtime version may change at any time.
+Using the default container image
+Waiting for container log creation
+PYSPARK_PYTHON=/opt/dataproc/conda/bin/python
+Generating /home/spark/.pip/pip.conf
+Configuring index-url as 'https://us-python.pkg.dev/artifact-registry-python-cache/virtual-python/simple/'
+JAVA_HOME=/usr/lib/jvm/temurin-17-jdk-amd64
+SPARK_EXTRA_CLASSPATH=
+:: loading settings :: file = /etc/spark/conf/ivysettings.xml
+26/07/18 07:20:14 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-google-hadoop-file-system.properties,hadoop-metrics2.properties
+26/07/18 07:20:14 INFO MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+26/07/18 07:20:14 INFO MetricsSystemImpl: google-hadoop-file-system metrics system started
+A2: Loading Dataset
++----------+----+------+------+---+------+----+
+|total_bill| tip|   sex|smoker|day|  time|size|
++----------+----+------+------+---+------+----+
+|     16.99|1.01|Female|    No|Sun|Dinner|   2|
+|     10.34|1.66|  Male|    No|Sun|Dinner|   3|
+|     21.01| 3.5|  Male|    No|Sun|Dinner|   3|
+|     23.68|3.31|  Male|    No|Sun|Dinner|   2|
+|     24.59|3.61|Female|    No|Sun|Dinner|   4|
++----------+----+------+------+---+------+----+
+only showing top 5 rows
+
+26/07/18 07:20:36 WARN Instrumentation: [753db1e7] regParam is zero, which might cause numerical instability and overfitting.
+26/07/18 07:20:37 WARN InstanceBuilder: Failed to load implementation from:dev.ludovic.netlib.blas.VectorBLAS
+
+========================================
+JOB LOG OUTPUT
+========================================
+Coefficients: [0.09145843635504758,0.21070300388935664]
+Intercept: 0.6178364054767158
+RMSE: 0.9917585899142384
+R?: 0.47574015044898343
+========================================
+
+Batch [e071346f8eea44d3a1a04a3e7dc69967] finished.
+metadata:
+  '@type': type.googleapis.com/google.cloud.dataproc.v1.BatchOperationMetadata
+  batch: projects/divine-glazing-499516-h2/locations/us-central1/batches/e071346f8eea44d3a1a04a3e7dc69967
+  batchUuid: 277119c3-60b8-402b-8673-abd60e2b706d
+  createTime: '2026-07-18T07:19:00.081884Z'
+  description: Batch
+  labels:
+    goog-dataproc-batch-id: e071346f8eea44d3a1a04a3e7dc69967
+    goog-dataproc-batch-uuid: 277119c3-60b8-402b-8673-abd60e2b706d
+    goog-dataproc-drz-resource-uuid: batch-277119c3-60b8-402b-8673-abd60e2b706d
+    goog-dataproc-location: us-central1
+  operationType: BATCH
+  warnings:
+  - No runtime version specified. Using the default runtime version. It is recommended
+    to select a specific major.minor runtime version in production, as the default
+    runtime version may change at any time.
+name: projects/divine-glazing-499516-h2/regions/us-central1/operations/b7d4d3b2-cf25-3df4-b999-4b9954842452
